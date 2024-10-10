@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, CreateDateColumn, OneToMany } from 'typeorm';
+import { OrderItem } from './order-item.entity';
+import { IsNotEmpty } from 'class-validator';
 
 @Entity()
 export class Order {
@@ -28,4 +30,11 @@ export class Order {
 
   @Column({ name: 'created_by', nullable: false })
   createdBy: number;
+
+  @IsNotEmpty()
+  @Column({ name: 'client_id' }) 
+  clientId: number;
+
+  @OneToMany(() => OrderItem, (orderItem) => orderItem.order, { cascade: true })
+  items: OrderItem[];
 }
