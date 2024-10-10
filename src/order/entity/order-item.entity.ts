@@ -21,7 +21,7 @@ export class OrderItem {
   @IsNumber()
   @IsPositive() 
 
-  @Column({ name: 'price', type: 'decimal', precision: 10, scale: 2 }) 
+  @Column({ name: 'price', type: 'decimal'}) 
   @IsNotEmpty()
   price: number;
 
