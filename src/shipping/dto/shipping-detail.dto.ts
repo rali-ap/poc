@@ -1,7 +1,8 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsObject, IsOptional, IsString } from 'class-validator';
 
 export class ShippingDetailDTO {
     @IsNotEmpty()
+    @IsString()
     address: string;
 
     @IsNotEmpty()
@@ -10,12 +11,23 @@ export class ShippingDetailDTO {
     @IsNotEmpty()
     state: string;
 
-    @IsNotEmpty()
+    @IsOptional()
+    @IsString()
     postalCode: string;
 
-    @IsNotEmpty()
+    @IsOptional()
+    @IsString()
     country: string;
 
-    @IsNotEmpty()
-    clientId: string; // Assuming this is a string
+    @IsString()
+    @IsOptional()
+    shippingPartnerId: string;
+
+    @IsString()
+    @IsOptional()
+    mobileNumber: string;
+
+    @IsOptional()
+    @IsObject() 
+    additionalAttribute?: Record<string, string>;
 }

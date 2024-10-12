@@ -18,8 +18,4 @@ export class OrderItemDTO {
 
     @IsNumber()
     discount: number = 0; 
-
-    @IsNotEmpty()
-    @IsNumber()
-    orderId: number; 
 }

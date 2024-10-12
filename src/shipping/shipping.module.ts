@@ -12,6 +12,7 @@ import { ShippingDetail } from './entity/shipping-detail.entity.mongo';
       ShippingDetail
     ], 'mongoDataSource'),
   ],
-  providers: [ShippingService]
+  providers: [ShippingService],
+  exports: [ShippingService]
 })
 export class ShippingModule {}

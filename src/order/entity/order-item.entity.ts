@@ -8,21 +8,17 @@ export class OrderItem {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ name: 'product_id', length: 40 })
-  @IsNotEmpty()
+  @Column({ name: 'product_id', length: 40, nullable: false })
   productId: string;
 
-  @Column({ name: 'variant_id', length: 40 })
+  @Column({ name: 'variant_id', length: 40, nullable: false })
   @IsNotEmpty()
   variantId: string;
 
-  @Column({ name: 'quantity' })
-  @IsNotEmpty()
-  @IsNumber()
+  @Column({ name: 'quantity', nullable: false })
   @IsPositive() 
 
-  @Column({ name: 'price', type: 'decimal'}) 
-  @IsNotEmpty()
+  @Column({ name: 'price', type: 'decimal', nullable: false}) 
   price: number;
 
   @Column({ name: 'discount', type: 'decimal', default: 0.0 })

@@ -18,28 +18,24 @@ export class OrderDTO {
     userId?: number;
 
     @IsNotEmpty()
-    status: string = 'pending'; // Default value
+    status: string = 'pending'; 
 
     @IsNotEmpty()
-    paymentStatus: string = 'unknown'; // Default value
+    paymentStatus: string = 'unknown'; 
 
     @IsNotEmpty()
-    paymentMethod: string = 'unknown'; // Default value
+    paymentMethod: string = 'unknown';
 
     @IsNotEmpty()
     @IsNumber()
     createdBy: number;
 
-    @IsNotEmpty()
-    @IsNumber()
-    clientId: number;
-
     @IsArray()
     @ValidateNested({ each: true })
-    @Type(() => OrderItemDTO) // Transform to OrderItemDTO
+    @Type(() => OrderItemDTO)
     items: OrderItemDTO[];
 
-    @ValidateNested() // For nested ShippingDetail
+    @ValidateNested() 
     @Type(() => ShippingDetailDTO)
     shippingDetail: ShippingDetailDTO;
 }

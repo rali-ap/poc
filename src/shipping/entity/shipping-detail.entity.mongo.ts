@@ -26,4 +26,7 @@ export class ShippingDetail {
 
     @Column()
     clientId: string;
+
+    @Column(type => Object)
+    additionalAttribute?: Record<string, string>;
 }

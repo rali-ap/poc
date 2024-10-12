@@ -7,7 +7,7 @@ export class Order {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ name: 'total_amount', nullable: false })
+  @Column({ name: 'total_amount', type: 'decimal', nullable: false })
   totalAmount: number;
 
   @Column({ name: 'total_item', nullable: false })
@@ -32,8 +32,8 @@ export class Order {
   createdBy: number;
 
   @IsNotEmpty()
-  @Column({ name: 'client_id' }) 
-  clientId: number;
+  @Column({ name: 'client_id', length: 40 }) 
+  clientId: string;
 
   @OneToMany(() => OrderItem, (orderItem) => orderItem.order, { cascade: true })
   items: OrderItem[];
